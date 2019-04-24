@@ -8,8 +8,9 @@
 
 import UIKit
 
-class FriendsController: UITableViewController{
+class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
+    let tableView = UITableView()
     private let cellID = "cellID"
     
     var messages: [Message]?
@@ -18,32 +19,60 @@ class FriendsController: UITableViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationItem.title = "Recent"
+        view.addSubview(tableView)
+        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         tableView.delegate = self
+        tableView.dataSource = self
+        if #available(iOS 11, *) {
+            let guide = view.safeAreaLayoutGuide
+            tableView.translatesAutoresizingMaskIntoConstraints = false
+            tableView.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+            tableView.leftAnchor.constraint(equalTo: guide.leftAnchor).isActive = true
+            tableView.rightAnchor.constraint(equalTo: guide.rightAnchor).isActive = true
+            tableView.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
+        }
         tableView.register(MessageCell.self, forCellReuseIdentifier: cellID)
         setupData()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = messages?.count {
             return count
         }
         return 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! MessageCell
         cell.message = messages?[indexPath.row]
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = ChatLogController()
+        controller.friend = messages?[indexPath.item].friend
+        navigationController?.pushViewController(controller, animated: true)
     }
 
 }
 
 class MessageCell: BaseCell {
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        backgroundColor = highlighted ? #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1) : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        nameLabel.textColor = highlighted ? .white : .black
+        timeLabel.textColor = highlighted ? .white : .black
+        messageLabel.textColor = highlighted ? .white : .darkGray
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        
+    }
     
     var message: Message? {
         didSet {
@@ -58,6 +87,17 @@ class MessageCell: BaseCell {
             if let date = message?.date {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "h:mm a"
+                
+                let elapsedTimeInSeconds = NSDate().timeIntervalSince(date as Date)
+                let secondsInDay: TimeInterval = 60 * 60 * 24
+                
+                if elapsedTimeInSeconds > secondsInDay {
+                    dateFormatter.dateFormat = "EEE"
+                }
+                
+                if elapsedTimeInSeconds > 7 * secondsInDay {
+                    dateFormatter.dateFormat = "MM/dd/YY"
+                }
                 
                 timeLabel.text = dateFormatter.string(from: date as Date)
             }

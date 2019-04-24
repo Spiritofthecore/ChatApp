@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA5E750F226BE94F00F7F14E /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5E750E226BE94F00F7F14E /* ChatLogController.swift */; };
 		FA712A11226365A9005B24AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA712A10226365A9005B24AA /* AppDelegate.swift */; };
 		FA712A13226365A9005B24AA /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA712A12226365A9005B24AA /* FriendsController.swift */; };
 		FA712A19226365A9005B24AA /* ChatApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA712A17226365A9005B24AA /* ChatApp.xcdatamodeld */; };
 		FA712A1B226365AC005B24AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA712A1A226365AC005B24AA /* Assets.xcassets */; };
 		FA712A1E226365AC005B24AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA712A1C226365AC005B24AA /* LaunchScreen.storyboard */; };
+		FA8925AC226C531D00581467 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8925AB226C531D00581467 /* CustomTabBarController.swift */; };
 		FAB4A2B52265D044003166C1 /* FriendsControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4A2B42265D044003166C1 /* FriendsControllerHelper.swift */; };
 		FAB4A2BA2265D40A003166C1 /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4A2B62265D40A003166C1 /* Friend+CoreDataClass.swift */; };
 		FAB4A2BB2265D40A003166C1 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4A2B72265D40A003166C1 /* Friend+CoreDataProperties.swift */; };
@@ -20,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA5E750E226BE94F00F7F14E /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		FA712A0D226365A9005B24AA /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA712A10226365A9005B24AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA712A12226365A9005B24AA /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
@@ -27,6 +30,7 @@
 		FA712A1A226365AC005B24AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA712A1D226365AC005B24AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA712A1F226365AC005B24AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA8925AB226C531D00581467 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		FAB4A2B42265D044003166C1 /* FriendsControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsControllerHelper.swift; sourceTree = "<group>"; };
 		FAB4A2B62265D40A003166C1 /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FAB4A2B72265D40A003166C1 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				FA712A1F226365AC005B24AA /* Info.plist */,
 				FA712A17226365A9005B24AA /* ChatApp.xcdatamodeld */,
 				FAB4A2B42265D044003166C1 /* FriendsControllerHelper.swift */,
+				FA5E750E226BE94F00F7F14E /* ChatLogController.swift */,
+				FA8925AB226C531D00581467 /* CustomTabBarController.swift */,
 			);
 			path = ChatApp;
 			sourceTree = "<group>";
@@ -149,7 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5E750F226BE94F00F7F14E /* ChatLogController.swift in Sources */,
 				FA712A19226365A9005B24AA /* ChatApp.xcdatamodeld in Sources */,
+				FA8925AC226C531D00581467 /* CustomTabBarController.swift in Sources */,
 				FAB4A2BA2265D40A003166C1 /* Friend+CoreDataClass.swift in Sources */,
 				FAB4A2B52265D044003166C1 /* FriendsControllerHelper.swift in Sources */,
 				FA712A13226365A9005B24AA /* FriendsController.swift in Sources */,
