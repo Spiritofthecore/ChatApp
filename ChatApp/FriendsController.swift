@@ -24,6 +24,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
+        
         if #available(iOS 11, *) {
             let guide = view.safeAreaLayoutGuide
             tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +35,12 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         tableView.register(MessageCell.self, forCellReuseIdentifier: cellID)
         setupData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -168,14 +175,14 @@ class MessageCell: BaseCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         messageLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: containerView.leadingAnchor, multiplier: 1).isActive = true
-        messageLabel.trailingAnchor.constraint(equalToSystemSpacingAfter: containerView.trailingAnchor, multiplier: 1).isActive = true
+        messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -40).isActive = true
         messageLabel.heightAnchor.constraint(equalToConstant: 60/2).isActive = true
         messageLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0).isActive = true
         
         nameLabel.heightAnchor.constraint(equalToConstant: 60/2).isActive = true
         nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0).isActive = true
         nameLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: containerView.leadingAnchor, multiplier: 1).isActive = true
-        nameLabel.trailingAnchor.constraint(equalToSystemSpacingAfter: containerView.trailingAnchor, multiplier: 1).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -40).isActive = true
 
         containerView.addSubview(timeLabel)
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
